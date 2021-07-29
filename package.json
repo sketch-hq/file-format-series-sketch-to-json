@@ -1,0 +1,23 @@
+{
+  "name": "file-format-series-01-sketch-to-json",
+  "version": "1.0.0",
+  "description": "Sample code for the File Format series of articles",
+  "main": "src/index.ts",
+  "author": "Sketch Developer",
+  "license": "MIT",
+  "dependencies": {
+    "@sketch-hq/sketch-file": "^1.0.5",
+    "@sketch-hq/sketch-file-format": "^6.1.1",
+    "@types/node": "^16.4.5",
+    "path": "^0.12.7",
+    "typescript": "^4.3.5"
+  },
+  "scripts": {
+    "start": "tsc src/index.ts && node src/index.js"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
+    "eslint": "^7.31.0"
+  }
+}
