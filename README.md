@@ -1,4 +1,4 @@
-# File Format Series 01: Sketch to JSON
+# File Format Series: Sketch to JSON
 
 This repository contains the source code for the [File Format Series 01: Sketch to JSON](#) blog post.
 
