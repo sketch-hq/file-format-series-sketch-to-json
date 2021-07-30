@@ -10,6 +10,6 @@ You'll need some familiarity with [TypeScript](https://typescriptlang.org), and 
 
 ## GitHub Action
 
-The repository includes a GitHub Action (in `.github/workflows`) that can be used to run the code. The action is triggered by changing the `color-library.sketch` file and pushing the change to the `main` branch.
+The repository includes a GitHub Action (in [`.github/workflows`](https://github.com/sketch-hq/file-format-series-sketch-to-json/blob/main/.github/workflows/update-json.yml)) that can be used to run the code. The action is triggered by changing the `color-library.sketch` file and pushing the changes to the `main` branch.
 
-The action will save the output of the conversion to `colors.json`, and store the file as an artifact in the 'Actions' tab of the GitHub UI.
+The action will save the output of the conversion to `colors.json`, and store the file as an artifact in the [_Actions_ tab of the GitHub UI](https://github.com/sketch-hq/file-format-series-sketch-to-json/actions).
