@@ -15,21 +15,19 @@ fromFile(resolve(__dirname, sketchDocumentPath)).then(
 
     // Sort color swatches by name. Uses `localCompare` to sort
     // numbers properly. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
-    const swatches = document.sharedSwatches.objects.sort((a, b) =>
-      a.name.localeCompare(b.name, undefined, { numeric: true })
+    const swatches: FileFormat.Swatch[] = document.sharedSwatches.objects.sort(
+      (a, b) => a.name.localeCompare(b.name, undefined, { numeric: true })
     )
 
-    const colors = {}
-
     // Iterate over the swatches, extracting the color values and storing them
-    swatches.forEach((swatch: FileFormat.Swatch) => {
-      const hexColor = rgbaToHex(
+    const colors = swatches.reduce((acc, swatch) => {
+      acc[swatch.name] = rgbaToHex(
         swatch.value.red,
         swatch.value.green,
         swatch.value.blue,
         swatch.value.alpha
       )
-      colors[swatch.name] = hexColor
+      return acc
     })
 
     // Finally, store the color information in a `colors.json` file:
