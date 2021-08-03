@@ -1,5 +1,5 @@
 {
-  "name": "file-format-series-01-sketch-to-json",
+  "name": "file-format-series-sketch-to-json",
   "version": "1.0.0",
   "description": "Sample code for the File Format series of articles",
   "main": "src/index.ts",
