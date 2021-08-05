@@ -19,19 +19,17 @@ fromFile(resolve(__dirname, sketchDocumentPath)).then(
     const swatches: FileFormat.Swatch[] = document.sharedSwatches.objects.sort(
       (a, b) => a.name.localeCompare(b.name, undefined, { numeric: true })
     )
-    console.log(`There are ${swatches.length} shared swatches`)
 
     // Iterate over the swatches, extracting the color values and storing them
-    const colors = swatches.reduce((acc, swatch) => {
-      acc[swatch.name] = rgbHex(
+    const colors = {}
+    swatches.forEach(swatch => {
+      colors[swatch.name] = rgbHex(
         swatch.value.red * 255,
         swatch.value.green * 255,
         swatch.value.blue * 255,
         swatch.value.alpha
       )
-      return acc
     })
-    console.log(colors)
 
     // Finally, store the color information in a `colors.json` file:
     fs.writeFile('colors.json', JSON.stringify(colors, null, 2), err => {
