@@ -2,6 +2,7 @@ import FileFormat from '@sketch-hq/sketch-file-format-ts'
 import { fromFile, SketchFile } from '@sketch-hq/sketch-file'
 import { resolve } from 'path'
 import * as fs from 'fs'
+import rgbHex from 'rgb-hex'
 
 const sketchDocumentPath = '../color-library.sketch'
 
@@ -18,17 +19,19 @@ fromFile(resolve(__dirname, sketchDocumentPath)).then(
     const swatches: FileFormat.Swatch[] = document.sharedSwatches.objects.sort(
       (a, b) => a.name.localeCompare(b.name, undefined, { numeric: true })
     )
+    console.log(`There are ${swatches.length} shared swatches`)
 
     // Iterate over the swatches, extracting the color values and storing them
     const colors = swatches.reduce((acc, swatch) => {
-      acc[swatch.name] = rgbaToHex(
-        swatch.value.red,
-        swatch.value.green,
-        swatch.value.blue,
+      acc[swatch.name] = rgbHex(
+        swatch.value.red * 255,
+        swatch.value.green * 255,
+        swatch.value.blue * 255,
         swatch.value.alpha
       )
       return acc
     })
+    console.log(colors)
 
     // Finally, store the color information in a `colors.json` file:
     fs.writeFile('colors.json', JSON.stringify(colors, null, 2), err => {
@@ -40,27 +43,3 @@ fromFile(resolve(__dirname, sketchDocumentPath)).then(
     })
   }
 )
-
-// Utility function to convert RGBA colors, as stored in the
-// Sketch file format, into Hex colors usable by Storybook.
-function rgbaToHex(
-  r: FileFormat.UnitInterval,
-  g: FileFormat.UnitInterval,
-  b: FileFormat.UnitInterval,
-  a: FileFormat.UnitInterval
-) {
-  const red: string = Math.round(r * 255)
-    .toString(16)
-    .padStart(2, '0')
-  const green: string = Math.round(g * 255)
-    .toString(16)
-    .padStart(2, '0')
-  const blue: string = Math.round(b * 255)
-    .toString(16)
-    .padStart(2, '0')
-  const alpha: string = Math.round(a * 255)
-    .toString(16)
-    .padStart(2, '0')
-
-  return `#${red}${green}${blue}${alpha == 'ff' ? '' : alpha}`
-}

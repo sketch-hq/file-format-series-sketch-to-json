@@ -10,10 +10,11 @@
     "@sketch-hq/sketch-file-format": "^6.1.1",
     "@types/node": "^16.4.5",
     "path": "^0.12.7",
+    "rgb-hex": "3.0.0",
     "typescript": "^4.3.5"
   },
   "scripts": {
-    "start": "tsc src/index.ts && node src/index.js"
+    "start": "tsc && node src/index.js"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.28.5",
