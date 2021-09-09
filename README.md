@@ -12,4 +12,4 @@ You'll need some familiarity with [TypeScript](https://typescriptlang.org), and 
 
 The repository includes a GitHub Action (in [`.github/workflows`](https://github.com/sketch-hq/file-format-series-sketch-to-json/blob/main/.github/workflows/update-json.yml)) that runs when there's a change to the `color-library.sketch` file on the `main` branch.
 
-The action will save the output of the conversion to `colors.json`, and store the file as an artifact in the [_Actions_ tab of the GitHub UI](https://github.com/sketch-hq/file-format-series-sketch-to-json/actions).
+The action will save the output of the conversion to the `colors.json` file, and commit it to the repo.

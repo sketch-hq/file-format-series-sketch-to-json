@@ -30,7 +30,9 @@ jobs:
         run: yarn install
       - name: Generate JSON
         run: yarn start
-      - uses: actions/upload-artifact@v2
+      - name: Push changes in JSON to repo
+        uses: actions-x/commit@v2
         with:
-          name: Color definitions in JSON format
-          path: colors.json
+          email: developer@sketch.com
+          name: Sketch Developer
+          files: colors.json
