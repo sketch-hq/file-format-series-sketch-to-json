@@ -1,6 +1,6 @@
 # File Format Series: Sketch to JSON
 
-This repository contains the source code for the [File Format Series: Sketch to JSON](#) blog post.
+This repository contains the source code for the [File Format Series: Sketch to JSON](https://www.sketch.com/blog/2022/01/06/open-format-reading-sketch-file-sketch-to-json/) blog post.
 
 Please refer to the article for instructions on how to use the code.
 
